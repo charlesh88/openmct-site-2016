@@ -1,21 +1,36 @@
 @import "../../bourbon/bourbon";
+@import "constants";
 
 html, body {
     background-color: white;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 85%;
+    font-size: 16px;
     line-spacing: 150%;
     margin: 0;
     padding: 0;
 }
 
 a {
+    color: $clrLink;
     text-decoration: none;
+    &:hover {
+        color: white;
+    }
 }
 
-nav, h2 {
+nav,
+h2,
+.l-hero-text {
     font-family: 'Montserrat', sans-serif;
+}
+
+nav,
+h2 {
     text-transform: uppercase;
+}
+
+p {
+    margin: 0;
 }
 
 /******************************************** ARCHETYPES */
@@ -24,8 +39,15 @@ nav, h2 {
     @include display(flex);
     @include flex-direction(row);
     @include flex(1 1 auto);
-    &.cols-2 .col {  width: 50%;  }
-    &.cols-3 .col {  width: 33.3%;  }
+    .col {
+        padding: 0 $padText;
+    }
+    &.cols-2 .col {
+        width: 50%;
+    }
+    &.cols-3 .col {
+        width: 33.3%;
+    }
 }
 
 .col {
@@ -33,29 +55,127 @@ nav, h2 {
     //border-right: 1px solid white;
 }
 
+/******************************************** PAGE SECTIONS */
+.l-page-section {
+    &.l-boxes {
+        font-size: 0.8rem;
+        padding: $padText 0;
+        &.bg-gray {
+            background-color: #ccc;
+            color: #666;
+        }
+        .col:not(:first-child) {
+            border-left: 1px solid rgba(white, 0.5);
+        }
+        h2 {
+            font-weight: 400;
+            margin-top: 0;
+        }
+    }
+
+}
+
 /******************************************** SPECIFIC ELEMENTS */
+
+.github-logo {
+    background: url('../images/logo-github-octocat.svg') no-repeat center center;
+}
+
 
 nav {
     @include align-items(center);
     background: rgba(black, 0.8);
+    font-size: 0.8rem;
     height: 75px;
     position: fixed;
     width: 100%;
     z-index: 5;
-    a { color: white; }
+    a {
+        color: white;
+        &:hover {
+          color: #4f79f7;
+        }
+    }
     .l-logoholder {
         height: 100%;
         width: 20%;
+        white-space: nowrap;
+        a.logo {
+            display: inline-block;
+            height: 100%;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: contain;
+            &:not(:first-child) {
+                margin-left: $padNavElem;
+            }
+        }
+        .logo-nasa {
+            background-image: url('../images/logo-nasa.png');
+            width: 65px;
+        }
+        .logo-openmct {
+            background-image: url('../images/logo-openmct.svg');
+            width: 130px;
+        }
     }
     .l-nav-links {
         text-align: right;
         width: 80%;
-        .nav-link:not(:first-child) {
-            margin-left: 2em;
+        .nav-link {
+            display: inline-block;
+            vertical-align: middle;
+            &:not(:first-child) {
+                margin-left: $padNavElem;
+            }
+        }
+        .github-logo {
+            width: 32px;
+            height: 32px;
         }
     }
 }
 
-.l-hero-main {
+.l-hero-holder {
+    position: relative;
     height: 660px;
+    .l-hero-main {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        line-height: 230%;
+        .l-hero-text {
+            @include align-items(center);
+            @include linear-gradient(rgba(black, 0), rgba(black, 0.6) 30%);
+            color: #ccc;
+            position: absolute;
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 40%;
+            b {
+                color: white;
+            }
+        }
+    }
+}
+
+/******************************************** HEROES */
+.hero-overview {
+    background-image: url('../images/hero-rp-dot-1.jpg');
+    .col {
+        padding: 0 $padText * 2;
+    }
+    .col-left {
+        font-size: 1.5em;
+    }
+    .col-right {
+        text-align: center;
+        text-transform: uppercase;
+        a {
+            display: block;
+        }
+    }
 }
