@@ -1,4 +1,6 @@
 html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
   background-color: white;
   font-family: 'Helvetica Neue', sans-serif;
   font-size: 16px;
@@ -7,7 +9,7 @@ html, body {
   padding: 0; }
 
 a {
-  color: #4f79f7;
+  color: #017ac6;
   text-decoration: none; }
   a:hover {
     color: white; }
@@ -24,7 +26,44 @@ h2 {
 p {
   margin: 0; }
 
+/******************************************** SYMBOLS */
+@font-face {
+  font-family: 'omct-symbols';
+  src: url("../fonts/omct-symbols.eot?yyn1qj");
+  src: url("../fonts/omct-symbols.eot?yyn1qj#iefix") format("embedded-opentype"), url("../fonts/omct-symbols.ttf?yyn1qj") format("truetype"), url("../fonts/omct-symbols.woff?yyn1qj") format("woff"), url("../fonts/omct-symbols.svg?yyn1qj#omct-symbols") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/*
+
+[class^="icon-"], [class*=" icon-"] {
+    !* use !important to prevent issues with browser extensions that change fonts *!
+    font-family: 'omct-symbols' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    !* Better Font Rendering =========== *!
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*/
 /******************************************** ARCHETYPES */
+.btn.major {
+  background-color: #0199f9;
+  background-image: -webkit-linear-gradient(#0199f9, #017ac6);
+  background-image: linear-gradient(#0199f9, #017ac6);
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 10px;
+  color: white;
+  padding: 2px 20px; }
+  .btn.major:hover {
+    background-color: #2faefe;
+    background-image: -webkit-linear-gradient(#2faefe, #0199f9);
+    background-image: linear-gradient(#2faefe, #0199f9); }
+
 .cols {
   display: -webkit-box;
   display: -moz-box;
@@ -43,19 +82,31 @@ p {
   -moz-flex-direction: row;
   flex-direction: row;
   -ms-flex-direction: row;
-  -webkit-box-flex: 1;
-  -moz-box-flex: 1;
-  box-flex: 1;
-  -webkit-flex: 1 1 auto;
-  -moz-flex: 1 1 auto;
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto; }
+  -webkit-box-lines: multiple;
+  -moz-box-lines: multiple;
+  box-lines: multiple;
+  -webkit-flex-wrap: wrap;
+  -moz-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }
   .cols .col {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 200px;
+    -moz-flex: 1 1 200px;
+    -ms-flex: 1 1 200px;
+    flex: 1 1 200px;
     padding: 0 32px; }
-  .cols.cols-2 .col {
-    width: 50%; }
-  .cols.cols-3 .col {
-    width: 33.3%; }
+
+.icon, .github-logo:before, .btn.download:after {
+  font-family: 'omct-symbols' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1; }
 
 .l-hero-holder {
   box-shadow: rgba(0, 0, 0, 0.4) 0 -15px 25px 25px;
@@ -105,12 +156,14 @@ p {
     .l-page-section.t-what-boxes .col:first-child {
       border-left: none; }
   .l-page-section.t-what-boxes h2 {
+    font-size: 1.2em;
     font-weight: 400;
     margin-top: 0; }
 
 /******************************************** SPECIFIC ELEMENTS */
-.github-logo {
-  background: url("../images/logo-github-octocat.svg") no-repeat center center; }
+.github-logo:before {
+  content: '\e950';
+  font-size: 2.5em; }
 
 nav {
   -webkit-box-align: center;
@@ -129,9 +182,9 @@ nav {
   width: 100%;
   z-index: 5; }
   nav a {
-    color: white; }
+    color: #ccc; }
     nav a:hover {
-      color: #4f79f7; }
+      color: #fff; }
   nav .l-logoholder {
     height: 100%;
     width: 20%;
@@ -145,7 +198,7 @@ nav {
       nav .l-logoholder a.logo:not(:first-child) {
         margin-left: 16px; }
     nav .l-logoholder .logo-nasa {
-      background-image: url("../images/logo-nasa.png");
+      background-image: url("../images/logo-nasa.svg");
       width: 65px; }
     nav .l-logoholder .logo-openmct {
       background-image: url("../images/logo-openmct.svg");
@@ -158,9 +211,6 @@ nav {
       vertical-align: middle; }
       nav .l-nav-links .nav-link:not(:first-child) {
         margin-left: 16px; }
-    nav .l-nav-links .github-logo {
-      width: 32px;
-      height: 32px; }
 
 .t-what-boxes .t-what-is {
   background-image: url("../images/graphic-operator-dishes-rover.svg"); }
@@ -169,6 +219,11 @@ nav {
 .t-what-boxes .t-contrib {
   background-image: url("../images/graphic-puzzle-pieces.svg");
   background-size: 75% !important; }
+
+.btn.download:after {
+  color: #62c2fe;
+  content: ' \e901';
+  font-size: 90%; }
 
 /******************************************** HEROES */
 .hero-overview {
@@ -181,6 +236,6 @@ nav {
     text-align: center;
     text-transform: uppercase; }
     .hero-overview .col-right a {
-      display: block; }
+      display: inline-block; }
 
 /*# sourceMappingURL=styles.css.map */

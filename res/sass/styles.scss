@@ -2,6 +2,8 @@
 @import "constants";
 
 html, body {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
     background-color: white;
     font-family: 'Helvetica Neue', sans-serif;
     font-size: 16px;
@@ -33,21 +35,78 @@ p {
     margin: 0;
 }
 
+/******************************************** SYMBOLS */
+@font-face {
+    font-family: 'omct-symbols';
+    src:    url('../fonts/omct-symbols.eot?yyn1qj');
+    src:    url('../fonts/omct-symbols.eot?yyn1qj#iefix') format('embedded-opentype'),
+    url('../fonts/omct-symbols.ttf?yyn1qj') format('truetype'),
+    url('../fonts/omct-symbols.woff?yyn1qj') format('woff'),
+    url('../fonts/omct-symbols.svg?yyn1qj#omct-symbols') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+/*
+
+[class^="icon-"], [class*=" icon-"] {
+    !* use !important to prevent issues with browser extensions that change fonts *!
+    font-family: 'omct-symbols' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    !* Better Font Rendering =========== *!
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+*/
+
+//.icon-icon-arrow-right:before {
+//    content: "\e900";
+//}
+//.icon-icon-download:before {
+//    content: "\e901";
+//}
+
+
+
 /******************************************** ARCHETYPES */
+
+.btn {
+    &.major {
+        $clrHvr: lighten($clrBtnMajor, 10%);
+        @include linear-gradient(lighten($clrBtnMajor, 10%), $clrBtnMajor);
+        border-radius: 5px;
+        box-shadow: rgba(black, 0.4) 0 2px 10px;
+        color: white;
+        padding: 2px 20px;
+        &:hover {
+            @include linear-gradient(lighten($clrHvr, 10%), $clrHvr);
+        }
+    }
+}
 
 .cols {
     @include display(flex);
     @include flex-direction(row);
-    @include flex(1 1 auto);
+    @include flex-wrap(wrap);
     .col {
+        @include flex(1 1 200px);
         padding: 0 $padText;
     }
-    &.cols-2 .col {
-        width: 50%;
-    }
-    &.cols-3 .col {
-        width: 33.3%;
-    }
+}
+
+.icon {
+    font-family: 'omct-symbols' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
 }
 
 .l-hero-holder {
@@ -95,6 +154,7 @@ p {
             }
         }
         h2 {
+            font-size: 1.2em;
             font-weight: 400;
             margin-top: 0;
         }
@@ -104,7 +164,12 @@ p {
 /******************************************** SPECIFIC ELEMENTS */
 
 .github-logo {
-    background: url('../images/logo-github-octocat.svg') no-repeat center center;
+    //background: url('../images/logo-github-octocat.svg') no-repeat center center;
+    &:before {
+        @extend .icon;
+        content: '\e950';
+        font-size: 2.5em;
+    }
 }
 
 nav {
@@ -116,9 +181,9 @@ nav {
     width: 100%;
     z-index: 5;
     a {
-        color: white;
+        color: #ccc;
         &:hover {
-            color: #4f79f7;
+            color: #fff;
         }
     }
     .l-logoholder {
@@ -136,7 +201,7 @@ nav {
             }
         }
         .logo-nasa {
-            background-image: url('../images/logo-nasa.png');
+            background-image: url('../images/logo-nasa.svg');
             width: 65px;
         }
         .logo-openmct {
@@ -154,10 +219,6 @@ nav {
                 margin-left: $padNavElem;
             }
         }
-        .github-logo {
-            width: 32px;
-            height: 32px;
-        }
     }
 }
 
@@ -165,6 +226,15 @@ nav {
     .t-what-is { background-image: url('../images/graphic-operator-dishes-rover.svg'); }
     .t-how-use { background-image: url('../images/graphic-sat-rocket-rover.svg'); }
     .t-contrib { background-image: url('../images/graphic-puzzle-pieces.svg'); background-size: 75% !important; }
+}
+
+.btn.download:after {
+    @extend .icon;
+    color: lighten($clrBtnMajor, 30%);
+    content: ' \e901';
+    font-size: 90%;
+    //font-family: 'omct-symbols' !important;
+
 }
 
 
@@ -181,7 +251,7 @@ nav {
         text-align: center;
         text-transform: uppercase;
         a {
-            display: block;
+            display: inline-block;
         }
     }
 }
