@@ -50,29 +50,55 @@ p {
     }
 }
 
-.col {
-    //background-color: gray;
-    //border-right: 1px solid white;
+.l-hero-holder {
+    box-shadow: rgba(black, 0.4) 0 -15px 25px 25px;
+    position: relative;
+    height: 660px;
+    .l-hero-main {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        line-height: 230%;
+        .l-hero-text {
+            @include align-items(center);
+            @include linear-gradient(rgba(black, 0), rgba(black, 0.6) 30%);
+            color: #ccc;
+            position: absolute;
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 40%;
+            b {
+                color: white;
+            }
+        }
+    }
 }
 
 /******************************************** PAGE SECTIONS */
 .l-page-section {
-    &.l-boxes {
+    &.t-what-boxes {
         font-size: 0.8rem;
         padding: $padText 0;
-        &.bg-gray {
-            background-color: #ccc;
-            color: #666;
-        }
-        .col:not(:first-child) {
+        background-color: #ccc;
+        color: #666;
+        .col {
             border-left: 1px solid rgba(white, 0.5);
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: 85%;
+            padding-bottom: 8%;
+            &:first-child {
+                border-left: none;
+            }
         }
         h2 {
             font-weight: 400;
             margin-top: 0;
         }
     }
-
 }
 
 /******************************************** SPECIFIC ELEMENTS */
@@ -80,7 +106,6 @@ p {
 .github-logo {
     background: url('../images/logo-github-octocat.svg') no-repeat center center;
 }
-
 
 nav {
     @include align-items(center);
@@ -93,7 +118,7 @@ nav {
     a {
         color: white;
         &:hover {
-          color: #4f79f7;
+            color: #4f79f7;
         }
     }
     .l-logoholder {
@@ -136,31 +161,12 @@ nav {
     }
 }
 
-.l-hero-holder {
-    position: relative;
-    height: 660px;
-    .l-hero-main {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
-        height: 100%;
-        line-height: 230%;
-        .l-hero-text {
-            @include align-items(center);
-            @include linear-gradient(rgba(black, 0), rgba(black, 0.6) 30%);
-            color: #ccc;
-            position: absolute;
-            top: auto;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            height: 40%;
-            b {
-                color: white;
-            }
-        }
-    }
+.t-what-boxes {
+    .t-what-is { background-image: url('../images/graphic-operator-dishes-rover.svg'); }
+    .t-how-use { background-image: url('../images/graphic-sat-rocket-rover.svg'); }
+    .t-contrib { background-image: url('../images/graphic-puzzle-pieces.svg'); background-size: 75% !important; }
 }
+
 
 /******************************************** HEROES */
 .hero-overview {
