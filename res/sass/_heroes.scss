@@ -1,0 +1,48 @@
+.l-hero-holder {
+    box-shadow: rgba(black, 0.4) 0 -15px 25px 25px;
+    position: relative;
+    height: 660px;
+    .l-hero-main {
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        line-height: 230%;
+        .l-hero-text {
+            @include align-items(center);
+            @include linear-gradient(rgba(black, 0), rgba(black, 0.6) 30%);
+            color: #ccc;
+            position: absolute;
+            top: auto;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            height: 40%;
+            * :not(.btn) {
+                text-shadow: rgba(black, 0.6) 0 1px 10px;
+            }
+
+            b {
+                color: white;
+            }
+        }
+    }
+}
+
+/******************************************** SPECIFIC HEROES */
+.hero-overview {
+    background-image: url('../images/hero-rp-dot-1.jpg');
+    .cols {
+        padding: 0 $padText * 2;
+    }
+    .col-left {
+        font-size: 1.5em;
+    }
+    .col-right {
+        text-align: center;
+        text-transform: uppercase;
+        a {
+            display: inline-block;
+        }
+    }
+}
