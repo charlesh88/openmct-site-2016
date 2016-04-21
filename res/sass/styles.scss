@@ -274,20 +274,27 @@ nav.main-nav {
         display: inline-block;
         width: 20px;
     }
-    .code-wrapper {
+    input.code-wrapper {
         background-color: #333;
         border-radius: $radiusBasic;
         border: none;
         box-sizing: border-box;
         color: #ccc;
         display: block;
-        height: $interiorMargin * 4;
-        overflow: hidden;
-        position: relative;
-        code {
-            position: absolute;
-            top: $interiorMargin; left: $interiorMargin;
-            white-space:nowrap;
+        font-family: monospace;
+        padding: 10px 10px;
+        width: 100%;
+        &:focus {
+            outline: none;
+        }
+        &::selection {
+            background-color: $clrLink;
+            color: white;
+        }
+
+        &::-moz-selection {
+            background-color: $clrLink;
+            color: white;
         }
     }
     li {
