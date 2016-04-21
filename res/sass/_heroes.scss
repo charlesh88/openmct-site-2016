@@ -1,5 +1,5 @@
 .l-hero-holder {
-    box-shadow: rgba(black, 0.4) 0 -15px 25px 25px;
+    //box-shadow: rgba(black, 0.4) 0 -20px 25px 25px;
     position: relative;
     height: 660px;
     .l-hero-main {
@@ -33,7 +33,7 @@
 .hero-overview {
     background-image: url('../images/hero-rp-dot-1.jpg');
     .cols {
-        padding: 0 $padText * 2;
+        padding: 0 $marginH * 2;
     }
     .col-left {
         font-size: 1.5em;

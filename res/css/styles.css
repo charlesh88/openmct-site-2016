@@ -28,7 +28,6 @@ ul:not(.bullets) {
     list-style: none; }
 
 .l-hero-holder {
-  box-shadow: rgba(0, 0, 0, 0.4) 0 -15px 25px 25px;
   position: relative;
   height: 660px; }
   .l-hero-holder .l-hero-main {
@@ -76,7 +75,7 @@ ul:not(.bullets) {
       display: inline-block; }
 
 html, body {
-  background-color: #4d4d4d;
+  background-color: #2e2e2e;
   font-family: 'Helvetica Neue', sans-serif; }
 
 a {
@@ -97,7 +96,7 @@ nav, h2, .t-footer {
   text-transform: uppercase; }
 
 .padX, .l-page-section, nav.main-nav {
-  padding: 0 32px; }
+  padding: 0 48px; }
 
 /******************************************** SYMBOLS */
 @font-face {
@@ -161,16 +160,16 @@ a.arw {
     -moz-flex: 1 1 auto;
     -ms-flex: 1 1 auto;
     flex: 1 1 auto;
-    margin-left: 32px;
-    padding-left: 32px; }
+    margin-left: 48px;
+    padding-left: 48px; }
     .cols .col:first-child {
       margin-left: 0;
       padding-left: 0; }
   .cols.cols-equal .col {
-    -webkit-flex-basis: 200px;
-    -moz-flex-basis: 200px;
-    flex-basis: 200px;
-    -ms-flex-preferred-size: 200px; }
+    -webkit-flex-basis: 0;
+    -moz-flex-basis: 0;
+    flex-basis: 0;
+    -ms-flex-preferred-size: 0; }
 
 .icon, a.arw:after, .btn.download:after, .github-logo:before {
   font-family: 'omct-symbols' !important;
@@ -183,8 +182,13 @@ a.arw {
 
 .video-wrapper {
   position: relative;
-  padding-bottom: 75%;
   height: 0; }
+  .video-wrapper.aspect16x9 {
+    padding-bottom: 56.25%; }
+  .video-wrapper.aspect3x1 {
+    padding-bottom: 66.6%; }
+  .video-wrapper.aspect4x3 {
+    padding-bottom: 75%; }
   .video-wrapper iframe.video {
     position: absolute;
     top: 0;
@@ -198,22 +202,26 @@ a.arw {
 /******************************************** PAGE SECTIONS */
 .l-page-section {
   background-color: white;
-  color: #444;
+  color: #2e2e2e;
   font-size: 0.9rem;
-  padding-top: 32px;
-  padding-bottom: 32px; }
+  padding-top: 48px;
+  padding-bottom: 48px; }
   .l-page-section h1, .l-page-section h2 {
-    color: #333; }
+    color: #666; }
   .l-page-section h1 {
-    font-size: 1.8em; }
+    font-size: 2.25em;
+    text-align: center;
+    margin-bottom: 48px; }
   .l-page-section h2 {
     font-size: 1.2em;
     font-weight: 400;
     margin-top: 0; }
   .l-page-section.c-ltgray {
     background-color: #fbfbfb; }
-  .l-page-section.c-ltblue {
-    background-color: #f5f7ff; }
+  .l-page-section.t-feature {
+    background-color: #fff;
+    background-image: -webkit-linear-gradient(#fff 90%, #f6f6f6);
+    background-image: linear-gradient(#fff 90%, #f6f6f6); }
   .l-page-section .area-scrolling {
     height: 200px;
     margin-bottom: 1.2em;
@@ -255,7 +263,7 @@ nav.main-nav {
   align-items: center;
   -ms-flex-align: center;
   box-sizing: border-box;
-  background: rgba(0, 0, 0, 0.8);
+  background: #2e2e2e;
   font-size: 0.8rem;
   height: 75px;
   position: fixed;
@@ -295,11 +303,15 @@ nav.main-nav {
   -o-align-items: stretch;
   align-items: stretch;
   -ms-flex-align: stretch;
-  background-color: #ccc; }
+  background-color: #ccc;
+  padding-top: 32px;
+  padding-bottom: 32px; }
+  .t-what-boxes .cols {
+    background-color: rgba(204, 0, 0, 0.2); }
   .t-what-boxes .col {
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 0.9em;
-    padding-bottom: 110px;
+    padding-bottom: 9%;
     position: relative; }
     .t-what-boxes .col:after {
       background-position: center bottom;
@@ -308,13 +320,16 @@ nav.main-nav {
       content: '';
       display: block;
       position: absolute;
-      left: 32px;
+      left: 48px;
       top: auto;
-      right: 32px;
+      right: 0;
       bottom: 0;
-      height: 100px; }
+      height: 0;
+      padding-bottom: 40%; }
     .t-what-boxes .col:first-child {
       border-left: none; }
+      .t-what-boxes .col:first-child:after {
+        left: 0; }
   .t-what-boxes .t-what-is:after {
     background-image: url("../images/graphic-operator-dishes-rover.svg"); }
   .t-what-boxes .t-how-use:after {
@@ -323,7 +338,7 @@ nav.main-nav {
     background-image: url("../images/graphic-puzzle-pieces.svg"); }
 
 .t-list-steps b {
-  color: #777777;
+  color: #616161;
   display: inline-block;
   width: 20px; }
 .t-list-steps input.code-wrapper {

@@ -5,7 +5,7 @@
 @import "heroes";
 
 html, body {
-    background-color: #4d4d4d;
+    background-color: $clrBodyBg;
     font-family: 'Helvetica Neue', sans-serif;
 }
 
@@ -32,7 +32,7 @@ nav, h2, .t-footer {
 }
 
 .padX {
-    padding: 0 $padText;
+    padding: 0 $marginV;
 }
 
 /******************************************** SYMBOLS */
@@ -79,16 +79,15 @@ a.arw {
     @include flex-wrap(nowrap);
     .col {
         @include flex(1 1 auto);
-        //@include test();
-        margin-left: $padText;
-        padding-left: $padText;
+        margin-left: $marginV;
+        padding-left: $marginV;
         &:first-child {
             margin-left: 0;
             padding-left: 0;
         }
     }
     &.cols-equal .col {
-        @include flex-basis(200px);
+        @include flex-basis(0);
     }
 }
 
@@ -104,8 +103,11 @@ a.arw {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 75%; // 56.25 = 16:9; 66.6 = 3:1; 75% = 4:3
     height: 0;
+    &.aspect16x9 { padding-bottom: 56.25%; }
+    &.aspect3x1 { padding-bottom: 66.6%; }
+    &.aspect4x3 { padding-bottom: 75%; }
+
     iframe.video {
         position: absolute;
         top: 0; left: 0;
@@ -123,14 +125,17 @@ a.arw {
 .l-page-section {
     @extend .padX;
     background-color: white;
-    color: $clrBody;
+    color: $clrBodyBg;
     font-size: 0.9rem;
-    padding-top: $padText; padding-bottom: $padText;
+    padding-top: $marginV; padding-bottom: $marginV;
 
-    h1, h2 { color: #333; }
+    h1, h2 { color: #666; }
 
     h1 {
-        font-size: 1.8em;
+        //color: lighten($clrBodyBg, 20%);
+        font-size: 2.25em;
+        text-align: center;
+        margin-bottom: $marginV;
     }
 
     h2 {
@@ -143,8 +148,8 @@ a.arw {
         background-color: #fbfbfb;
     }
 
-    &.c-ltblue {
-        background-color: #f5f7ff;
+    &.t-feature {
+        @include linear-gradient(#fff 90%, #f6f6f6);
     }
 
     .area-scrolling {
@@ -197,7 +202,7 @@ nav.main-nav {
     @extend .padX;
     @include align-items(center);
     box-sizing: border-box;
-    background: rgba(black, 0.8);
+    background: $clrBodyBg; //rgba(black, 0.8);
     font-size: 0.8rem;
     height: 75px;
     position: fixed;
@@ -241,26 +246,35 @@ nav.main-nav {
 .t-what-boxes {
     @include align-items(stretch);
     background-color: #ccc;
+    padding-top: $marginVSm; padding-bottom: $marginVSm;
+    .cols {
+        @include test(rgba(#cc0000, 0.2));
+    }
     .col {
-        $pS: $padText;
+        $pS: $marginV;
         $graphicH: 100px;
         border-left: 1px solid rgba(white, 0.5);
         font-size: 0.9em;
-        padding-bottom: $graphicH + 10px;
+        padding-bottom: 9%; //$graphicH + 10px;
         position: relative;
         &:after {
             // Add a div to hold background graphics
+            //@include test();
             background-position: center bottom;
             background-repeat: no-repeat;
             background-size: contain;
             content:'';
             display: block;
             position: absolute;
-            left: $pS; top: auto; right: $pS; bottom: 0;
-            height: $graphicH;
+            left: $pS; top: auto; right: 0; bottom: 0;
+            height: 0; //$graphicH;
+            padding-bottom: 40%;
         }
         &:first-child {
             border-left: none;
+            &:after {
+                left: 0;
+            }
         }
     }
     .t-what-is:after { background-image: url('../images/graphic-operator-dishes-rover.svg'); }
@@ -270,7 +284,7 @@ nav.main-nav {
 
 .t-list-steps {
     b {
-        color: lighten($clrBody, 20%);
+        color: lighten($clrBodyBg, 20%);
         display: inline-block;
         width: 20px;
     }
@@ -309,7 +323,7 @@ nav.main-nav {
 .t-footer {
     $c: #999;
     $logoW: 65px;
-    @include linear-gradient(rgba(black, 0.4), rgba(black, 0) 15px);
+    @include linear-gradient(rgba(black, 0.4), transparent 15px);
     color: $c;
     padding-bottom: 200px;
     line-height: 140%;
