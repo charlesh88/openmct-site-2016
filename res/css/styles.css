@@ -1,112 +1,31 @@
 html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: white;
-  font-family: 'Helvetica Neue', sans-serif;
   font-size: 16px;
-  line-spacing: 150%;
+  line-spacing: normal;
   margin: 0;
   padding: 0; }
 
-a {
-  color: #017ac6;
-  text-decoration: none; }
-  a:hover {
-    color: white; }
+div, li {
+  box-sizing: border-box; }
 
-nav,
-h2,
-.l-hero-text {
-  font-family: 'Montserrat', sans-serif; }
+h1, h2, h3 {
+  line-height: 1;
+  margin-top: 0;
+  margin-bottom: 0.6em; }
 
-nav,
-h2 {
-  text-transform: uppercase; }
+iframe {
+  border: none;
+  display: block; }
 
-p {
-  margin: 0; }
+p, ol {
+  margin: 0 0 0.6em 0; }
 
-/******************************************** SYMBOLS */
-@font-face {
-  font-family: 'omct-symbols';
-  src: url("../fonts/omct-symbols.eot?yyn1qj");
-  src: url("../fonts/omct-symbols.eot?yyn1qj#iefix") format("embedded-opentype"), url("../fonts/omct-symbols.ttf?yyn1qj") format("truetype"), url("../fonts/omct-symbols.woff?yyn1qj") format("woff"), url("../fonts/omct-symbols.svg?yyn1qj#omct-symbols") format("svg");
-  font-weight: normal;
-  font-style: normal; }
-/*
-
-[class^="icon-"], [class*=" icon-"] {
-    !* use !important to prevent issues with browser extensions that change fonts *!
-    font-family: 'omct-symbols' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    !* Better Font Rendering =========== *!
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-*/
-/******************************************** ARCHETYPES */
-.btn.major {
-  background-color: #0199f9;
-  background-image: -webkit-linear-gradient(#0199f9, #017ac6);
-  background-image: linear-gradient(#0199f9, #017ac6);
-  border-radius: 5px;
-  box-shadow: rgba(0, 0, 0, 0.4) 0 2px 10px;
-  color: white;
-  padding: 2px 20px; }
-  .btn.major:hover {
-    background-color: #2faefe;
-    background-image: -webkit-linear-gradient(#2faefe, #0199f9);
-    background-image: linear-gradient(#2faefe, #0199f9); }
-
-.cols {
-  display: -webkit-box;
-  display: -moz-box;
-  display: box;
-  display: -webkit-flex;
-  display: -moz-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -moz-box-orient: horizontal;
-  box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -moz-box-direction: normal;
-  box-direction: normal;
-  -webkit-flex-direction: row;
-  -moz-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-direction: row;
-  -webkit-box-lines: multiple;
-  -moz-box-lines: multiple;
-  box-lines: multiple;
-  -webkit-flex-wrap: wrap;
-  -moz-flex-wrap: wrap;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap; }
-  .cols .col {
-    -webkit-box-flex: 1;
-    -moz-box-flex: 1;
-    box-flex: 1;
-    -webkit-flex: 1 1 200px;
-    -moz-flex: 1 1 200px;
-    -ms-flex: 1 1 200px;
-    flex: 1 1 200px;
-    padding: 0 32px; }
-
-.icon, .github-logo:before, .btn.download:after {
-  font-family: 'omct-symbols' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1; }
+ul:not(.bullets) {
+  margin: 0;
+  padding: 0; }
+  ul:not(.bullets) li {
+    list-style: none; }
 
 .l-hero-holder {
   box-shadow: rgba(0, 0, 0, 0.4) 0 -15px 25px 25px;
@@ -138,34 +57,194 @@ p {
       bottom: 0;
       left: 0;
       height: 40%; }
+      .l-hero-holder .l-hero-main .l-hero-text * :not(.btn) {
+        text-shadow: rgba(0, 0, 0, 0.6) 0 1px 10px; }
       .l-hero-holder .l-hero-main .l-hero-text b {
         color: white; }
 
+/******************************************** SPECIFIC HEROES */
+.hero-overview {
+  background-image: url("../images/hero-rp-dot-1.jpg"); }
+  .hero-overview .cols {
+    padding: 0 64px; }
+  .hero-overview .col-left {
+    font-size: 1.5em; }
+  .hero-overview .col-right {
+    text-align: center;
+    text-transform: uppercase; }
+    .hero-overview .col-right a {
+      display: inline-block; }
+
+html, body {
+  background-color: #4d4d4d;
+  font-family: 'Helvetica Neue', sans-serif; }
+
+a {
+  color: #017ac6;
+  text-decoration: none; }
+  a:hover {
+    color: #16a4fe; }
+
+.list-vertical {
+  margin-bottom: 1.2em !important; }
+
+nav, h1, h2, a.arw, .l-hero-text, .t-footer, .t-list-steps:not(code) {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: normal;
+  letter-spacing: -0.03em; }
+
+nav, h2, .t-footer {
+  text-transform: uppercase; }
+
+.padX, .l-page-section, nav.main-nav {
+  padding: 0 32px; }
+
+/******************************************** SYMBOLS */
+@font-face {
+  font-family: 'omct-symbols';
+  src: url("../fonts/omct-symbols.eot?yyn1qj");
+  src: url("../fonts/omct-symbols.eot?yyn1qj#iefix") format("embedded-opentype"), url("../fonts/omct-symbols.ttf?yyn1qj") format("truetype"), url("../fonts/omct-symbols.woff?yyn1qj") format("woff"), url("../fonts/omct-symbols.svg?yyn1qj#omct-symbols") format("svg");
+  font-weight: normal;
+  font-style: normal; }
+/******************************************** ARCHETYPES */
+.btn {
+  white-space: nowrap; }
+  .btn.major {
+    background-color: #0199f9;
+    background-image: -webkit-linear-gradient(#0199f9, #017ac6);
+    background-image: linear-gradient(#0199f9, #017ac6);
+    border-radius: 5px;
+    box-shadow: rgba(0, 0, 0, 0.4) 0 2px 10px;
+    color: white;
+    padding: 2px 20px; }
+    .btn.major:hover {
+      background-color: #48b8fe;
+      background-image: -webkit-linear-gradient(#48b8fe, #0199f9);
+      background-image: linear-gradient(#48b8fe, #0199f9); }
+
+a.arw {
+  text-transform: uppercase; }
+  a.arw:after {
+    content: ' \e900';
+    font-size: 0.8em; }
+
+.cols {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -moz-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: row;
+  -moz-flex-direction: row;
+  flex-direction: row;
+  -ms-flex-direction: row;
+  -webkit-box-lines: single;
+  -moz-box-lines: single;
+  box-lines: single;
+  -webkit-flex-wrap: nowrap;
+  -moz-flex-wrap: nowrap;
+  -ms-flex-wrap: nowrap;
+  flex-wrap: nowrap; }
+  .cols .col {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -moz-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    margin-left: 32px;
+    padding-left: 32px; }
+    .cols .col:first-child {
+      margin-left: 0;
+      padding-left: 0; }
+  .cols.cols-equal .col {
+    -webkit-flex-basis: 200px;
+    -moz-flex-basis: 200px;
+    flex-basis: 200px;
+    -ms-flex-preferred-size: 200px; }
+
+.icon, a.arw:after, .btn.download:after, .github-logo:before {
+  font-family: 'omct-symbols' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1; }
+
+.video-wrapper {
+  position: relative;
+  padding-bottom: 75%;
+  height: 0; }
+  .video-wrapper iframe.video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%; }
+
+.area-scrolling {
+  overflow: auto; }
+
 /******************************************** PAGE SECTIONS */
-.l-page-section.t-what-boxes {
-  font-size: 0.8rem;
-  padding: 32px 0;
-  background-color: #ccc;
-  color: #666; }
-  .l-page-section.t-what-boxes .col {
-    border-left: 1px solid rgba(255, 255, 255, 0.5);
-    background-position: center bottom;
-    background-repeat: no-repeat;
-    background-size: 85%;
-    padding-bottom: 8%; }
-    .l-page-section.t-what-boxes .col:first-child {
-      border-left: none; }
-  .l-page-section.t-what-boxes h2 {
+.l-page-section {
+  background-color: white;
+  color: #444;
+  font-size: 0.9rem;
+  padding-top: 32px;
+  padding-bottom: 32px; }
+  .l-page-section h1, .l-page-section h2 {
+    color: #333; }
+  .l-page-section h1 {
+    font-size: 1.8em; }
+  .l-page-section h2 {
     font-size: 1.2em;
     font-weight: 400;
     margin-top: 0; }
+  .l-page-section.c-ltgray {
+    background-color: #fbfbfb; }
+  .l-page-section.c-ltblue {
+    background-color: #f5f7ff; }
+  .l-page-section .area-scrolling {
+    height: 200px;
+    margin-bottom: 1.2em;
+    width: 100%; }
 
 /******************************************** SPECIFIC ELEMENTS */
+.btn.download:after {
+  color: #62c2fe;
+  content: ' \e901';
+  font-size: .8em; }
+.btn.download:hover:after {
+  color: #aedfff; }
+
+.logo-bg, .logo-nasa, .t-footer .t-footer-content:before, .logo-openmct {
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: contain; }
+
+.logo-nasa, .t-footer .t-footer-content:before {
+  background-image: url("../images/logo-nasa.svg");
+  width: 65px; }
+
+.logo-openmct {
+  background-image: url("../images/logo-openmct.svg");
+  width: 130px; }
+
 .github-logo:before {
   content: '\e950';
   font-size: 2.5em; }
 
-nav {
+nav.main-nav {
   -webkit-box-align: center;
   -moz-box-align: center;
   box-align: center;
@@ -175,67 +254,117 @@ nav {
   -o-align-items: center;
   align-items: center;
   -ms-flex-align: center;
+  box-sizing: border-box;
   background: rgba(0, 0, 0, 0.8);
   font-size: 0.8rem;
   height: 75px;
   position: fixed;
   width: 100%;
   z-index: 5; }
-  nav a {
+  nav.main-nav a {
     color: #ccc; }
-    nav a:hover {
-      color: #fff; }
-  nav .l-logoholder {
+    nav.main-nav a:hover {
+      color: #f2f2f2; }
+  nav.main-nav .l-logoholder {
     height: 100%;
-    width: 20%;
     white-space: nowrap; }
-    nav .l-logoholder a.logo {
+    nav.main-nav .l-logoholder a.logo {
       display: inline-block;
       height: 100%;
       background-repeat: no-repeat;
       background-position: center center;
       background-size: contain; }
-      nav .l-logoholder a.logo:not(:first-child) {
+      nav.main-nav .l-logoholder a.logo:not(:first-child) {
         margin-left: 16px; }
-    nav .l-logoholder .logo-nasa {
-      background-image: url("../images/logo-nasa.svg");
-      width: 65px; }
-    nav .l-logoholder .logo-openmct {
-      background-image: url("../images/logo-openmct.svg");
-      width: 130px; }
-  nav .l-nav-links {
+  nav.main-nav .l-nav-links {
     text-align: right;
-    width: 80%; }
-    nav .l-nav-links .nav-link {
+    white-space: nowrap; }
+    nav.main-nav .l-nav-links .nav-link {
       display: inline-block;
       vertical-align: middle; }
-      nav .l-nav-links .nav-link:not(:first-child) {
+      nav.main-nav .l-nav-links .nav-link:not(:first-child) {
         margin-left: 16px; }
 
-.t-what-boxes .t-what-is {
-  background-image: url("../images/graphic-operator-dishes-rover.svg"); }
-.t-what-boxes .t-how-use {
-  background-image: url("../images/graphic-sat-rocket-rover.svg"); }
-.t-what-boxes .t-contrib {
-  background-image: url("../images/graphic-puzzle-pieces.svg");
-  background-size: 75% !important; }
+.t-what-boxes {
+  -webkit-box-align: stretch;
+  -moz-box-align: stretch;
+  box-align: stretch;
+  -webkit-align-items: stretch;
+  -moz-align-items: stretch;
+  -ms-align-items: stretch;
+  -o-align-items: stretch;
+  align-items: stretch;
+  -ms-flex-align: stretch;
+  background-color: #ccc; }
+  .t-what-boxes .col {
+    border-left: 1px solid rgba(255, 255, 255, 0.5);
+    font-size: 0.9em;
+    padding-bottom: 110px;
+    position: relative; }
+    .t-what-boxes .col:after {
+      background-position: center bottom;
+      background-repeat: no-repeat;
+      background-size: contain;
+      content: '';
+      display: block;
+      position: absolute;
+      left: 32px;
+      top: auto;
+      right: 32px;
+      bottom: 0;
+      height: 100px; }
+    .t-what-boxes .col:first-child {
+      border-left: none; }
+  .t-what-boxes .t-what-is:after {
+    background-image: url("../images/graphic-operator-dishes-rover.svg"); }
+  .t-what-boxes .t-how-use:after {
+    background-image: url("../images/graphic-sat-rocket-rover.svg"); }
+  .t-what-boxes .t-contrib:after {
+    background-image: url("../images/graphic-puzzle-pieces.svg"); }
 
-.btn.download:after {
-  color: #62c2fe;
-  content: ' \e901';
-  font-size: 90%; }
+.t-list-steps b {
+  color: #777777;
+  display: inline-block;
+  width: 20px; }
+.t-list-steps .code-wrapper {
+  background-color: #333;
+  border-radius: 5px;
+  border: none;
+  box-sizing: border-box;
+  color: #ccc;
+  display: block;
+  height: 2.4em;
+  overflow: hidden;
+  position: relative; }
+  .t-list-steps .code-wrapper code {
+    position: absolute;
+    top: 0.6em;
+    left: 0.6em;
+    white-space: nowrap; }
+.t-list-steps li {
+  margin-bottom: 1.2em; }
+.t-list-steps p {
+  font-size: 1.25em;
+  text-transform: uppercase; }
 
-/******************************************** HEROES */
-.hero-overview {
-  background-image: url("../images/hero-rp-dot-1.jpg"); }
-  .hero-overview .col {
-    padding: 0 64px; }
-  .hero-overview .col-left {
-    font-size: 1.5em; }
-  .hero-overview .col-right {
-    text-align: center;
-    text-transform: uppercase; }
-    .hero-overview .col-right a {
-      display: inline-block; }
+.t-footer {
+  background-color: rgba(0, 0, 0, 0.4);
+  background-image: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), transparent 15px);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), transparent 15px);
+  color: #999;
+  padding-bottom: 200px;
+  line-height: 140%; }
+  .t-footer b {
+    color: #cccccc; }
+  .t-footer .t-footer-content {
+    font-size: 0.8em;
+    padding-left: 85px;
+    position: relative; }
+    .t-footer .t-footer-content:before {
+      content: '';
+      display: block;
+      height: 65px;
+      position: absolute;
+      left: 0; }
 
 /*# sourceMappingURL=styles.css.map */

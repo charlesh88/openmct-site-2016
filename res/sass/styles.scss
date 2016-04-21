@@ -1,38 +1,38 @@
 @import "../../bourbon/bourbon";
 @import "constants";
+@import "mixins";
+@import "resets";
+@import "heroes";
 
 html, body {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background-color: white;
+    background-color: #4d4d4d;
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 16px;
-    line-spacing: 150%;
-    margin: 0;
-    padding: 0;
 }
 
 a {
     color: $clrLink;
     text-decoration: none;
     &:hover {
-        color: white;
+        color: lighten($clrLink, $clrHoverLightenPercent);
     }
 }
 
-nav,
-h2,
-.l-hero-text {
-    font-family: 'Montserrat', sans-serif;
+.list-vertical {
+    margin-bottom: $interiorMargin * 2 !important;
 }
 
-nav,
-h2 {
+nav, h1, h2, a.arw, .l-hero-text, .t-footer, .t-list-steps:not(code) {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: normal;
+    letter-spacing: -0.03em;
+}
+
+nav, h2, .t-footer {
     text-transform: uppercase;
 }
 
-p {
-    margin: 0;
+.padX {
+    padding: 0 $padText;
 }
 
 /******************************************** SYMBOLS */
@@ -46,56 +46,49 @@ p {
     font-weight: normal;
     font-style: normal;
 }
-/*
-
-[class^="icon-"], [class*=" icon-"] {
-    !* use !important to prevent issues with browser extensions that change fonts *!
-    font-family: 'omct-symbols' !important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-
-    !* Better Font Rendering =========== *!
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-*/
-
-//.icon-icon-arrow-right:before {
-//    content: "\e900";
-//}
-//.icon-icon-download:before {
-//    content: "\e901";
-//}
-
-
 
 /******************************************** ARCHETYPES */
 
 .btn {
+    white-space: nowrap;
     &.major {
         $clrHvr: lighten($clrBtnMajor, 10%);
         @include linear-gradient(lighten($clrBtnMajor, 10%), $clrBtnMajor);
-        border-radius: 5px;
+        border-radius: $radiusBasic;
         box-shadow: rgba(black, 0.4) 0 2px 10px;
         color: white;
         padding: 2px 20px;
         &:hover {
-            @include linear-gradient(lighten($clrHvr, 10%), $clrHvr);
+            @include linear-gradient(lighten($clrHvr, $clrHoverLightenPercent), $clrHvr);
         }
+    }
+}
+
+a.arw {
+    text-transform: uppercase;
+    &:after {
+        @extend .icon;
+        content: ' \e900';
+        font-size: 0.8em;
     }
 }
 
 .cols {
     @include display(flex);
     @include flex-direction(row);
-    @include flex-wrap(wrap);
+    @include flex-wrap(nowrap);
     .col {
-        @include flex(1 1 200px);
-        padding: 0 $padText;
+        @include flex(1 1 auto);
+        //@include test();
+        margin-left: $padText;
+        padding-left: $padText;
+        &:first-child {
+            margin-left: 0;
+            padding-left: 0;
+        }
+    }
+    &.cols-equal .col {
+        @include flex-basis(200px);
     }
 }
 
@@ -109,71 +102,88 @@ p {
     line-height: 1;
 }
 
-.l-hero-holder {
-    box-shadow: rgba(black, 0.4) 0 -15px 25px 25px;
+.video-wrapper {
     position: relative;
-    height: 660px;
-    .l-hero-main {
-        background-position: center center;
-        background-repeat: no-repeat;
-        background-size: cover;
+    padding-bottom: 75%; // 56.25 = 16:9; 66.6 = 3:1; 75% = 4:3
+    height: 0;
+    iframe.video {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%;
         height: 100%;
-        line-height: 230%;
-        .l-hero-text {
-            @include align-items(center);
-            @include linear-gradient(rgba(black, 0), rgba(black, 0.6) 30%);
-            color: #ccc;
-            position: absolute;
-            top: auto;
-            right: 0;
-            bottom: 0;
-            left: 0;
-            height: 40%;
-            b {
-                color: white;
-            }
-        }
     }
+}
+
+.area-scrolling {
+    //@include test();
+    overflow: auto;
 }
 
 /******************************************** PAGE SECTIONS */
 .l-page-section {
-    &.t-what-boxes {
-        @include align-items(stretch);
-        font-size: 0.8rem;
-        padding: $padText 0;
-        background-color: #ccc;
-        color: #666;
-        .col {
-            $pS: $padText;
-            $graphicH: 100px;
-            border-left: 1px solid rgba(white, 0.5);
-            padding-bottom: $graphicH + 10px;
-            position: relative;
-            &:after {
-                // Add a div to hold background graphics
-                background-position: center bottom;
-                background-repeat: no-repeat;
-                background-size: contain;
-                content:'';
-                display: block;
-                position: absolute;
-                left: $pS; top: auto; right: $pS; bottom: 0;
-                height: $graphicH;
-            }
-            &:first-child {
-                border-left: none;
-            }
-        }
-        h2 {
-            font-size: 1.2em;
-            font-weight: 400;
-            margin-top: 0;
-        }
+    @extend .padX;
+    background-color: white;
+    color: $clrBody;
+    font-size: 0.9rem;
+    padding-top: $padText; padding-bottom: $padText;
+
+    h1, h2 { color: #333; }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.2em;
+        font-weight: 400;
+        margin-top: 0;
+    }
+
+    &.c-ltgray {
+        background-color: #fbfbfb;
+    }
+
+    &.c-ltblue {
+        background-color: #f5f7ff;
+    }
+
+    .area-scrolling {
+        height: 200px;
+        margin-bottom: $interiorMarginLg;
+        width: 100%;
     }
 }
 
 /******************************************** SPECIFIC ELEMENTS */
+.btn.download {
+    $c: lighten($clrBtnMajor, 30%);
+    &:after {
+        @extend .icon;
+        color: $c;
+        content: ' \e901';
+        font-size: .8em;
+    }
+    &:hover:after {
+        color: lighten($c, $clrHoverLightenPercent);
+    }
+}
+
+.logo-bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.logo-nasa {
+    @extend .logo-bg;
+    background-image: url('../images/logo-nasa.svg');
+    width: 65px;
+}
+.logo-openmct {
+    @extend .logo-bg;
+    background-image: url('../images/logo-openmct.svg');
+    width: 130px;
+}
 
 .github-logo {
     &:before {
@@ -183,8 +193,10 @@ p {
     }
 }
 
-nav {
+nav.main-nav {
+    @extend .padX;
     @include align-items(center);
+    box-sizing: border-box;
     background: rgba(black, 0.8);
     font-size: 0.8rem;
     height: 75px;
@@ -192,14 +204,15 @@ nav {
     width: 100%;
     z-index: 5;
     a {
-        color: #ccc;
+        $c: #ccc;
+        color: $c;
         &:hover {
-            color: #fff;
+            color: lighten($c, $clrHoverLightenPercent);
         }
     }
+
     .l-logoholder {
         height: 100%;
-        width: 20%;
         white-space: nowrap;
         a.logo {
             display: inline-block;
@@ -211,18 +224,10 @@ nav {
                 margin-left: $padNavElem;
             }
         }
-        .logo-nasa {
-            background-image: url('../images/logo-nasa.svg');
-            width: 65px;
-        }
-        .logo-openmct {
-            background-image: url('../images/logo-openmct.svg');
-            width: 130px;
-        }
     }
     .l-nav-links {
         text-align: right;
-        width: 80%;
+        white-space:nowrap;
         .nav-link {
             display: inline-block;
             vertical-align: middle;
@@ -234,35 +239,85 @@ nav {
 }
 
 .t-what-boxes {
+    @include align-items(stretch);
+    background-color: #ccc;
+    .col {
+        $pS: $padText;
+        $graphicH: 100px;
+        border-left: 1px solid rgba(white, 0.5);
+        font-size: 0.9em;
+        padding-bottom: $graphicH + 10px;
+        position: relative;
+        &:after {
+            // Add a div to hold background graphics
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            background-size: contain;
+            content:'';
+            display: block;
+            position: absolute;
+            left: $pS; top: auto; right: $pS; bottom: 0;
+            height: $graphicH;
+        }
+        &:first-child {
+            border-left: none;
+        }
+    }
     .t-what-is:after { background-image: url('../images/graphic-operator-dishes-rover.svg'); }
     .t-how-use:after { background-image: url('../images/graphic-sat-rocket-rover.svg'); }
     .t-contrib:after { background-image: url('../images/graphic-puzzle-pieces.svg'); }
 }
 
-.btn.download:after {
-    @extend .icon;
-    color: lighten($clrBtnMajor, 30%);
-    content: ' \e901';
-    font-size: 90%;
-    //font-family: 'omct-symbols' !important;
-
+.t-list-steps {
+    b {
+        color: lighten($clrBody, 20%);
+        display: inline-block;
+        width: 20px;
+    }
+    .code-wrapper {
+        background-color: #333;
+        border-radius: $radiusBasic;
+        border: none;
+        box-sizing: border-box;
+        color: #ccc;
+        display: block;
+        height: $interiorMargin * 4;
+        overflow: hidden;
+        position: relative;
+        code {
+            position: absolute;
+            top: $interiorMargin; left: $interiorMargin;
+            white-space:nowrap;
+        }
+    }
+    li {
+        margin-bottom: $interiorMarginLg;
+    }
+    p {
+        font-size: 1.25em;
+        text-transform: uppercase;
+    }
 }
 
-
-/******************************************** HEROES */
-.hero-overview {
-    background-image: url('../images/hero-rp-dot-1.jpg');
-    .col {
-        padding: 0 $padText * 2;
-    }
-    .col-left {
-        font-size: 1.5em;
-    }
-    .col-right {
-        text-align: center;
-        text-transform: uppercase;
-        a {
-            display: inline-block;
+.t-footer {
+    $c: #999;
+    $logoW: 65px;
+    @include linear-gradient(rgba(black, 0.4), rgba(black, 0) 15px);
+    color: $c;
+    padding-bottom: 200px;
+    line-height: 140%;
+    b { color:lighten($c, 20%); }
+    .t-footer-content {
+        font-size: 0.8em;
+        padding-left: $logoW + 20px;
+        position: relative;
+        &:before {
+            @extend .logo-nasa;
+            content: '';
+            display: block;
+            height: $logoW;
+            position: absolute;
+            left: 0;
         }
     }
 }
