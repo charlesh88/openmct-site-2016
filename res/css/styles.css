@@ -326,21 +326,24 @@ nav.main-nav {
   color: #777777;
   display: inline-block;
   width: 20px; }
-.t-list-steps .code-wrapper {
+.t-list-steps input.code-wrapper {
   background-color: #333;
   border-radius: 5px;
   border: none;
   box-sizing: border-box;
   color: #ccc;
   display: block;
-  height: 2.4em;
-  overflow: hidden;
-  position: relative; }
-  .t-list-steps .code-wrapper code {
-    position: absolute;
-    top: 0.6em;
-    left: 0.6em;
-    white-space: nowrap; }
+  font-family: monospace;
+  padding: 10px 10px;
+  width: 100%; }
+  .t-list-steps input.code-wrapper:focus {
+    outline: none; }
+  .t-list-steps input.code-wrapper::selection {
+    background-color: #017ac6;
+    color: white; }
+  .t-list-steps input.code-wrapper::-moz-selection {
+    background-color: #017ac6;
+    color: white; }
 .t-list-steps li {
   margin-bottom: 1.2em; }
 .t-list-steps p {
