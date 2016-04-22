@@ -228,6 +228,9 @@ a.arw {
     width: 100%; }
 
 /******************************************** SPECIFIC ELEMENTS */
+.l-main {
+  padding-top: 65px; }
+
 .btn.download:after {
   color: #62c2fe;
   content: ' \e901';
@@ -242,11 +245,11 @@ a.arw {
 
 .logo-nasa, .t-footer .t-footer-content:before {
   background-image: url("../images/logo-nasa.svg");
-  width: 65px; }
+  width: 58.5px; }
 
 .logo-openmct {
   background-image: url("../images/logo-openmct.svg");
-  width: 130px; }
+  width: 108.225px; }
 
 .github-logo:before {
   content: '\e950';
@@ -265,7 +268,7 @@ nav.main-nav {
   box-sizing: border-box;
   background: #2e2e2e;
   font-size: 0.8rem;
-  height: 75px;
+  height: 65px;
   position: fixed;
   width: 100%;
   z-index: 5; }
@@ -309,33 +312,53 @@ nav.main-nav {
   .t-what-boxes .cols {
     background-color: rgba(204, 0, 0, 0.2); }
   .t-what-boxes .col {
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    box-orient: vertical;
+    -webkit-box-direction: normal;
+    -moz-box-direction: normal;
+    box-direction: normal;
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    flex-direction: column;
+    -ms-flex-direction: column;
+    -webkit-box-lines: single;
+    -moz-box-lines: single;
+    box-lines: single;
+    -webkit-flex-wrap: nowrap;
+    -moz-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     font-size: 0.9em;
-    padding-bottom: 9%;
     position: relative; }
-    .t-what-boxes .col:after {
-      background-position: center bottom;
-      background-repeat: no-repeat;
-      background-size: contain;
-      content: '';
-      display: block;
-      position: absolute;
-      left: 48px;
-      top: auto;
-      right: 0;
-      bottom: 0;
-      height: 0;
-      padding-bottom: 40%; }
+    .t-what-boxes .col .c-wrap {
+      -webkit-box-flex: 1;
+      -moz-box-flex: 1;
+      box-flex: 1;
+      -webkit-flex: 1 1 auto;
+      -moz-flex: 1 1 auto;
+      -ms-flex: 1 1 auto;
+      flex: 1 1 auto; }
+    .t-what-boxes .col .graphic {
+      -webkit-box-flex: 0;
+      -moz-box-flex: 0;
+      box-flex: 0;
+      -webkit-flex: 0 1 auto;
+      -moz-flex: 0 1 auto;
+      -ms-flex: 0 1 auto;
+      flex: 0 1 auto;
+      margin-top: 0.6em;
+      display: block; }
     .t-what-boxes .col:first-child {
       border-left: none; }
-      .t-what-boxes .col:first-child:after {
-        left: 0; }
-  .t-what-boxes .t-what-is:after {
-    background-image: url("../images/graphic-operator-dishes-rover.svg"); }
-  .t-what-boxes .t-how-use:after {
-    background-image: url("../images/graphic-sat-rocket-rover.svg"); }
-  .t-what-boxes .t-contrib:after {
-    background-image: url("../images/graphic-puzzle-pieces.svg"); }
 
 .t-list-steps b {
   color: #616161;

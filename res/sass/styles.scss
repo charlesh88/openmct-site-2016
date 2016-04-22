@@ -160,6 +160,12 @@ a.arw {
 }
 
 /******************************************** SPECIFIC ELEMENTS */
+.l-main {
+    // Push down content to make room for main nav.
+    // Don't do this if nav uses translucent look.
+    padding-top: $navH;
+}
+
 .btn.download {
     $c: lighten($clrBtnMajor, 30%);
     &:after {
@@ -182,12 +188,12 @@ a.arw {
 .logo-nasa {
     @extend .logo-bg;
     background-image: url('../images/logo-nasa.svg');
-    width: 65px;
+    width: $navH * .9; //65px;
 }
 .logo-openmct {
     @extend .logo-bg;
     background-image: url('../images/logo-openmct.svg');
-    width: 130px;
+    width: ($navH * .45) * 3.7; //130px; // width = 3.7 * 60% * navH
 }
 
 .github-logo {
@@ -204,7 +210,7 @@ nav.main-nav {
     box-sizing: border-box;
     background: $clrBodyBg; //rgba(black, 0.8);
     font-size: 0.8rem;
-    height: 75px;
+    height: $navH;
     position: fixed;
     width: 100%;
     z-index: 5;
@@ -253,33 +259,25 @@ nav.main-nav {
     .col {
         $pS: $marginV;
         $graphicH: 100px;
+        @include display(flex);
+        @include flex-direction(column);
+        @include flex-wrap(nowrap);
         border-left: 1px solid rgba(white, 0.5);
         font-size: 0.9em;
-        padding-bottom: 9%; //$graphicH + 10px;
         position: relative;
-        &:after {
-            // Add a div to hold background graphics
-            //@include test();
-            background-position: center bottom;
-            background-repeat: no-repeat;
-            background-size: contain;
-            content:'';
+
+        .c-wrap {
+            @include flex(1 1 auto);
+        }
+        .graphic {
+            @include flex(0 1 auto);
+            margin-top: $interiorMargin;
             display: block;
-            position: absolute;
-            left: $pS; top: auto; right: 0; bottom: 0;
-            height: 0; //$graphicH;
-            padding-bottom: 40%;
         }
         &:first-child {
             border-left: none;
-            &:after {
-                left: 0;
-            }
         }
     }
-    .t-what-is:after { background-image: url('../images/graphic-operator-dishes-rover.svg'); }
-    .t-how-use:after { background-image: url('../images/graphic-sat-rocket-rover.svg'); }
-    .t-contrib:after { background-image: url('../images/graphic-puzzle-pieces.svg'); }
 }
 
 .t-list-steps {
