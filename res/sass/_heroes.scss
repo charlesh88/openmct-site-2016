@@ -1,7 +1,7 @@
 .l-hero-holder {
     //box-shadow: rgba(black, 0.4) 0 -20px 25px 25px;
     position: relative;
-    height: 660px;
+    height: 540px;
     .l-hero-main {
         background-position: center center;
         background-repeat: no-repeat;
@@ -10,7 +10,7 @@
         line-height: 230%;
         .l-hero-text {
             @include align-items(center);
-            @include linear-gradient(rgba(black, 0), rgba(black, 0.6) 30%);
+            @include linear-gradient(rgba(black, 0), rgba(black, 0.7) 40%);
             color: #ccc;
             position: absolute;
             top: auto;

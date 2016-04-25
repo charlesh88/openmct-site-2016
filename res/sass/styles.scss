@@ -253,9 +253,6 @@ nav.main-nav {
     @include align-items(stretch);
     background-color: #ccc;
     padding-top: $marginVSm; padding-bottom: $marginVSm;
-    .cols {
-        @include test(rgba(#cc0000, 0.2));
-    }
     .col {
         $pS: $marginV;
         $graphicH: 100px;
