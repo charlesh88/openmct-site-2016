@@ -3,6 +3,7 @@
 @import "mixins";
 @import "resets";
 @import "heroes";
+@import "body-pages";
 
 html, body {
     background-color: $clrBodyBg;
@@ -21,13 +22,13 @@ a {
     margin-bottom: $interiorMargin * 2 !important;
 }
 
-nav, h1, h2, a.arw, .l-hero-text, .t-footer, .t-list-steps:not(code) {
+nav, h1, h2, h3, a.arw, .l-hero-text, .t-footer, .t-list-steps:not(code) {
     font-family: 'Montserrat', sans-serif;
     font-weight: normal;
     letter-spacing: -0.03em;
 }
 
-nav, h2, .t-footer {
+nav, h2, h3, .t-footer {
     text-transform: uppercase;
 }
 

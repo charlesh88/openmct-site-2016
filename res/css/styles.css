@@ -1,3 +1,4 @@
+/********************************** PAGE COLORS */
 html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,14 +29,15 @@ ul:not(.bullets) {
     list-style: none; }
 
 .l-hero-holder {
-  position: relative;
-  height: 540px; }
+  position: relative; }
   .l-hero-holder .l-hero-main {
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
     height: 100%;
     line-height: 230%; }
+    .l-hero-holder .l-hero-main .cols {
+      padding: 0 64px; }
     .l-hero-holder .l-hero-main .l-hero-text {
       -webkit-box-align: center;
       -moz-box-align: center;
@@ -61,18 +63,38 @@ ul:not(.bullets) {
       .l-hero-holder .l-hero-main .l-hero-text b {
         color: white; }
 
+.p-home .l-hero-holder {
+  height: 540px; }
+
+.p-body .l-hero-holder {
+  height: 240px; }
+  .p-body .l-hero-holder .l-hero-main .cols .col-left {
+    text-transform: uppercase; }
+  .p-body .l-hero-holder .l-hero-main .l-hero-text {
+    background: none;
+    color: white;
+    height: 60%; }
+
 /******************************************** SPECIFIC HEROES */
-.hero-overview {
+.p-home .hero-overview {
   background-image: url("../images/hero-rp-dot-1.jpg"); }
-  .hero-overview .cols {
-    padding: 0 64px; }
-  .hero-overview .col-left {
+  .p-home .hero-overview .col-left {
     font-size: 1.5em; }
-  .hero-overview .col-right {
+  .p-home .hero-overview .col-right {
     text-align: center;
     text-transform: uppercase; }
-    .hero-overview .col-right a {
+    .p-home .hero-overview .col-right a {
       display: inline-block; }
+
+.p-body.about .l-hero-holder .l-hero-main {
+  background-image: url("../images/hero-body-packets-1.jpg"); }
+
+.p-body .l-page-section {
+  padding-top: 24px;
+  padding-bottom: 24px; }
+  .p-body .l-page-section h2 {
+    font-size: 1.5em;
+    text-align: left; }
 
 html, body {
   background-color: #2e2e2e;
@@ -87,12 +109,12 @@ a {
 .list-vertical {
   margin-bottom: 1.2em !important; }
 
-nav, h1, h2, a.arw, .l-hero-text, .t-footer, .t-list-steps:not(code) {
+nav, h1, h2, h3, a.arw, .l-hero-text, .t-footer, .t-list-steps:not(code) {
   font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   letter-spacing: -0.03em; }
 
-nav, h2, .t-footer {
+nav, h2, h3, .t-footer {
   text-transform: uppercase; }
 
 .padX, .l-page-section, nav.main-nav {
