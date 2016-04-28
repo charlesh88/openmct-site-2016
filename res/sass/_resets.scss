@@ -11,7 +11,7 @@ div, li {
     box-sizing: border-box;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4 {
     line-height: 1;
     margin-top: 0;
     margin-bottom: $interiorMargin;
@@ -24,6 +24,10 @@ iframe {
 
 p, ol {
     margin: 0 0 $interiorMargin 0;
+}
+
+ol {
+    margin-left: 0;
 }
 
 ul:not(.bullets) {
